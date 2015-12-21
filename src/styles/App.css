@@ -1,0 +1,14 @@
+/* Base Application Styles */
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+.grid-item:hover {
+  cursor: pointer;
+}
+
+a.close-link {
+  position: absolute;
+  top: 25px;
+  right: 30px;
+}

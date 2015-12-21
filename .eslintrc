@@ -1,0 +1,109 @@
+{
+  "plugins": [
+    "react"
+  ],
+  "ecmaFeatures": {
+    "jsx": true,
+    "modules": true
+  },
+  "env": {
+    "browser": true,
+    "amd": true,
+    "es6": true,
+    "node": true
+  },
+  "rules": {
+    "comma-dangle": 1,
+    "quotes": [ 1, "single" ],
+    "no-undef": 1,
+    "global-strict": 0,
+    "no-extra-semi": 1,
+    "no-underscore-dangle": 0,
+    "no-console": 1,
+    "no-unused-vars": [1, { "varsIgnorePattern": "React"}],
+    "no-trailing-spaces": [1, { "skipBlankLines": true }],
+    "no-unreachable": 1,
+    "no-alert": 0
+  },
+  "ecmaFeatures": {
+    "arrowFunctions": true,
+    "blockBindings": true,
+    "classes": false,
+    "defaultParams": true,
+    "destructuring": true,
+    "forOf": true,
+    "generators": true,
+    "modules": true,
+    "objectLiteralComputedProperties": true,
+    "objectLiteralDuplicateProperties": false,
+    "objectLiteralShorthandMethods": true,
+    "objectLiteralShorthandProperties": true,
+    "superInFunctions": true,
+    "templateStrings": true,
+    "unicodeCodePointEscapes": true,
+    "globalReturn": false,
+    "jsx": true
+  },
+  "react/display-name": [2, { "acceptTranspilerName": true }],
+    "react/jsx-boolean-value": [2, "always"], // TODO
+    "react/jsx-no-undef": 2,
+    "react/jsx-sort-prop-types": 0,
+    "react/jsx-sort-props": 0,
+    "react/jsx-uses-react": [ 2 ],
+    "react/jsx-uses-vars": 2,
+    "react/no-did-mount-set-state": [ 2 ],
+    "react/no-did-update-set-state": [ 2 ],
+    "react/no-multi-comp": 2, // TODO
+    "react/no-unknown-property": 2,
+    "react/prop-types": [ 2, { "ignore" : [ "children" ]} ],
+    "react/react-in-jsx-scope": 2, // TODO
+    "react/self-closing-comp": 2,
+    "react/wrap-multilines": [ 2 ],
+    "react/sort-comp": [2, {
+      "order": [
+        "displayName",
+        "statics",
+        "contexts",
+        "mixins",
+        "props",
+        "constructor",
+        "state",
+        "lifecycle",
+        "listeners",
+        "everything-else",
+        "renderers"
+      ],
+      "groups": {
+         "contexts": [
+           "contextTypes",
+           "childContextTypes",
+           "getChildContext",
+         ],
+         "lifecycle": [
+           "componentWillMount",
+           "componentDidMount",
+           "componentWillReceiveProps",
+           "shouldComponentUpdate",
+           "componentWillUpdate",
+           "componentDidUpdate",
+           "componentWillUnmount",
+         ],
+         "listeners": [
+           "/^on.+$/",
+         ],
+         "props": [
+           "propTypes",
+           "defaultProps",
+           "getDefaultProps",
+         ],
+         "renderers": [
+           "/^render.+$/",
+           "render",
+         ],
+         "state": [
+           "state",
+           "getInitialState",
+         ]
+       }
+     }],
+}

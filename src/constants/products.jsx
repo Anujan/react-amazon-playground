@@ -1,0 +1,4 @@
+export default {
+  FETCH_PRODUCTS: 'FETCH_PRODUCTS',
+  OPEN_MODAL: 'OPEN_MODAL'
+};
