@@ -5,20 +5,15 @@ import GridTile from 'material-ui/lib/grid-list/grid-tile';
 import RaisedButton from 'material-ui/lib/raised-button';
 import * as ProductActionCreators from '../../actions/products';
 import { Navigation, RouteHandler } from 'react-router';
+import getImageStyles from '../../utils/getImageStyles';
+import stripHtml from '../../utils/stripHtml';
 
 const FIRST_PAGE = 1;
 
-const GRID_COLS = 3;
+const GRID_COLS = 6;
 const GRID_PADDING = 15; //padding between items
 
 const DESIRED_IMAGE_HEIGHT = 250;
-
-function getImageStyles(image) {
-  return {
-    width: DESIRED_IMAGE_HEIGHT * image.aspect,
-    height: DESIRED_IMAGE_HEIGHT
-  }
-};
 
 const ProductsGrid = React.createClass({
   mixins: [Navigation],
@@ -35,7 +30,7 @@ const ProductsGrid = React.createClass({
   },
 
   openModal(product) {
-    this.transitionTo(`/product/${product.asin}`);
+    this.transitionTo(`/product/preview/${product.asin}`);
   },
 
   renderGrid() {
@@ -43,29 +38,33 @@ const ProductsGrid = React.createClass({
       return <span />;
     }
     return (
-      <GridList
-        cols={GRID_COLS}
-        padding={GRID_PADDING}
-        cellHeight={DESIRED_IMAGE_HEIGHT}
-      >
-        {this.props.loadedProducts.map((product) => {
-          const image = product.images[0];
-          return <GridTile
-            title={product.title}
-            key={product.asin}
-            onClick={this.openModal.bind(this, product)}
-            className="grid-item"
-            >
-              <img src={image.src} style={getImageStyles(image)} />
-            </GridTile>;
-        })}
-      </GridList>
+      <div>
+        <h3>Books from Amazon</h3>
+        <GridList
+          cols={GRID_COLS}
+          padding={GRID_PADDING}
+          cellHeight={DESIRED_IMAGE_HEIGHT}
+        >
+          {this.props.loadedProducts.map((product) => {
+            const image = product.images[0];
+            return <GridTile
+              title={product.title}
+              subtitle={stripHtml(product.price)}
+              key={product.asin}
+              onClick={this.openModal.bind(this, product)}
+              className="grid-item"
+              >
+                <img src={image.src} style={getImageStyles(image, DESIRED_IMAGE_HEIGHT)} />
+              </GridTile>;
+          })}
+        </GridList>
+      </div>
     );
   },
 
   render() {
     return (
-      <div>
+      <div className="container">
         <RouteHandler products={this.props.loadedProducts} />
         {this.renderGrid()}
         <RaisedButton

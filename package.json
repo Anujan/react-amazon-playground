@@ -71,6 +71,7 @@
     "redux-simple-promise": "2.0.2",
     "redux-thunk": "^1.0.0",
     "sass-loader": "^1.0.1",
+    "slug": "0.9.1",
     "superagent": "1.6.1"
   }
 }

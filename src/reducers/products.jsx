@@ -20,7 +20,7 @@ export default function(state = initialState, action) {
       return {
         ...state,
         fetching: false,
-        page: action.meta.page,
+        page: action.meta ? action.meta.page : 0,
         loadedProducts: state.loadedProducts.concat(action.payload.p)
       }
     case reject(FETCH_PRODUCTS):
